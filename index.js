@@ -6,6 +6,7 @@ const registerRoutes = require('./routes/registerRoutes');
 const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes')
+const quotationRoutes = require('./routes/quotationRoutes')
 
 const app = express();
 connectDB();
@@ -17,10 +18,11 @@ app.use('/api/auth', authRoutes);
 app.use("/api/users", registerRoutes);
 app.use("/api/users", userRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/products', quotationRoutes);
+
 
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
-  console.log(`Acesse via: http://localhost:${PORT}`);
 });
